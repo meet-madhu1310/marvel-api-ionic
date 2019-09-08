@@ -1,5 +1,7 @@
 {
   "name": "testTwoApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

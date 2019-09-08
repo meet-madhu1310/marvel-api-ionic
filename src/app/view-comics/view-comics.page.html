@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Comics</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let comic of data">
+      <ion-img style="min-height: 1vh !important; margin-top: 1px;" src="{{ comic.thumbnail['path'] + '/landscape_xlarge.' + comic.thumbnail['extension'] }}"></ion-img>
+
+    <ion-card-header>
+      <ion-card-subtitle>
+        {{ comic.title }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ comic.description }}
+    </ion-card-content>
+
+    <ion-card-content>
+      <p>Available Format: {{ comic.format }} </p>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
