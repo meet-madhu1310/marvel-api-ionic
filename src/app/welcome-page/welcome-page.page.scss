@@ -1,4 +1,6 @@
 ion-button {
+    --background: #222428;
+    --color: #fff;
     display: grid;
     justify-content: center;
     margin-top: 5%;
@@ -10,4 +12,13 @@ ion-label {
     text-align: center;
     margin-top: 90%;
     font-size: 2rem;
+    color: #fff;
+}
+
+ion-content{
+    --background: dark;
+    background-image: url('../../assets/snap.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }

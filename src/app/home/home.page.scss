@@ -16,4 +16,18 @@ ion-card-subtitle{
 ion-button{
   display: grid;
   justify-content: center;
+
+  --background: #fff;
+  --color: #222428;
+}
+
+ion-footer {
+  height: 70px;
+
+  ion-button {
+  --background: $primary;
+  --color: #fff;
+  font-size: 1.25rem;
+  margin-top: -13px;
+  }
 }

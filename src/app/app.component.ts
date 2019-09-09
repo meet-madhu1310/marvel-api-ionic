@@ -19,12 +19,12 @@ export class AppComponent {
     {
       title: 'About',
       url: '/about',
-      icon: 'help-circle-outline'
+      icon: 'contact'
     },
     {
       title: 'Test',
       url: '/testing',
-      icon: 'contact'
+      icon: 'flash'
     },
     {
       title: 'Welcome',

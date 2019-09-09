@@ -1,0 +1,35 @@
+ion-img{
+    height: 350px;
+    object-fit: cover;
+    background-position: center;
+}
+
+ion-card-subtitle{
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+ion-icon {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    padding-top: 15px;
+}
+
+.fun, .edu, .exp {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+.fun {
+    background-image: url('../../assets/fun.jpg');
+}
+
+.edu {
+    background-image: url('../../assets/edu.jpg');
+}
+
+.exp {
+    background-image: url('../../assets/exp.jpg');
+}

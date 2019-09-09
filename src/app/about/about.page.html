@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -7,10 +7,65 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="dark" padding>
+<ion-content padding>
 
-  <p>
-    This is something with Ionic.
-  </p>
+  <ion-card color="dark">
+      <ion-img src="/assets/meet.jpg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Meet Madhu</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-start size="2" style="padding-left: 15px;"><ion-icon style="font-size: 2rem;" name="call"></ion-icon></ion-col>
+          <ion-col align-self-center style="margin-top: 13px;">(604)906-8444</ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col align-self-start size="2" style="padding-left: 15px;"><ion-icon style="font-size: 2rem;" name="mail"></ion-icon></ion-col>
+            <ion-col align-self-center style="margin-top: 10px;">meetmadhu1310@gmail.com</ion-col>
+          </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="edu">
+    <ion-card-header>
+      <ion-card-subtitle style="color: #fff;">Education</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ul style="font-size: 1em; color: #fff;">
+        <li>Web and Mobile App Development</li>
+        <li>Bachelor's of Computer Engineering</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="dark" class="fun">
+      <ion-card-header>
+        <ion-card-subtitle>For Fun</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ul style="font-size: 1em;">
+          <li>Roaming in the city</li>
+          <li>Coffee + Book</li>
+          <li>PlayStation</li>
+          <li>Driving + Music</li>
+          <li>Food + Beer</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+
+  <ion-card class="exp">
+      <ion-card-header>
+        <ion-card-subtitle style="color: #fff;">Experience</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ul style="font-size: 1em; color: #fff;">
+          <li>Junior Web Developer</li>
+          <li>Co-Founder of Instacoup</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
 
 </ion-content>

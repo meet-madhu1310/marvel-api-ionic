@@ -8,6 +8,8 @@ import { Md5 } from 'ts-md5/dist/md5'
 
 import { Router } from '@angular/router'
 
+import { Slides } from 'ionic-angular'
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -27,9 +29,13 @@ export class HomePage {
   
   constructor(private nativeHttp: HTTP, private loadingCtrl: LoadingController, private route: Router) {}
 
-  nextPage() {
+  comicsPage() {
     this.route.navigate(['/view-comics'])
   }
+
+  // nextSlide() {
+  //   this.slide.slideNext()
+  // }
 
   async ionViewDidEnter() {
     //WAIT FOR DATA TO FETCH
