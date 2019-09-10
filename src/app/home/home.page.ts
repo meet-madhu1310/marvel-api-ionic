@@ -6,9 +6,9 @@ import { from } from 'rxjs'
 import { finalize } from 'rxjs/operators'
 import { Md5 } from 'ts-md5/dist/md5'
 
-import { Router } from '@angular/router'
-
-import { Slides } from 'ionic-angular'
+import { Router, NavigationExtras } from '@angular/router'
+import { NavController } from '@ionic/angular'
+import { ViewComicsPage } from '../view-comics/view-comics.page';
 
 @Component({
   selector: 'app-home',
@@ -17,32 +17,22 @@ import { Slides } from 'ionic-angular'
 })
 export class HomePage {
   data = []
-  imageData = []
 
   //DATA FOR HASH
   timeStamp = Date.now()
-  privateKey = 'e3e2db831d87d93f01ede25bfdc6bd0d46ac9fa6'
-  publicKey = '89dd9f6152897008a59e0050cecf5713'
+  privateKey = 'YOUR_PRIVATE_KEY'
+  publicKey = 'YOUR_PUBLIC_KEY'
 
   //HASH
   hash = Md5.hashStr(this.timeStamp + this.privateKey + this.publicKey)
   
   constructor(private nativeHttp: HTTP, private loadingCtrl: LoadingController, private route: Router) {}
 
-  comicsPage() {
-    this.route.navigate(['/view-comics'])
-  }
-
-  // nextSlide() {
-  //   this.slide.slideNext()
-  // }
-
+  //API FUNCTION
   async ionViewDidEnter() {
-    //WAIT FOR DATA TO FETCH
     let loading = await this.loadingCtrl.create()
     await loading.present()
 
-    //CALL API
     let nativeCall = this.nativeHttp.get(
       `https://gateway.marvel.com:443/v1/public/characters?limit=10&` + `ts=${this.timeStamp}&` + `apikey=${this.publicKey}&` + `hash=${this.hash}`,
       {},
@@ -57,8 +47,20 @@ export class HomePage {
     })
   }
 
+  //VIEW COMICS
+  public comicsPage(id: any) {
+    let navExtras: NavigationExtras = {
+      state: {
+        id: id
+      }
+    }
+    this.route.navigate(['/view-comics'], navExtras)
+    console.log('Show me id: ', id)
+  }
+
   //SEARCHBAR DATA
   getCharacter(ev) {
+    //storing searchbar value to val
     let val = ev.target.value
 
     //CALL API

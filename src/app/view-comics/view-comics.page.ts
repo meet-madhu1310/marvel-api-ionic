@@ -6,6 +6,10 @@ import { from } from 'rxjs'
 import { finalize } from 'rxjs/operators'
 import { Md5 } from 'ts-md5/dist/md5'
 
+import { IonicPage, NavController, NavParams } from 'ionic-angular'
+import { ActivatedRoute, Router } from '@angular/router'
+
+// @IonicPage()
 @Component({
   selector: 'app-view-comics',
   templateUrl: './view-comics.page.html',
@@ -13,8 +17,15 @@ import { Md5 } from 'ts-md5/dist/md5'
 })
 export class ViewComicsPage {
   data = []
+  characterId: any
   
-  constructor(private nativeHttp: HTTP, private loadingCtrl: LoadingController) {}
+  constructor(private nativeHttp: HTTP, private loadingCtrl: LoadingController, private route: ActivatedRoute, private router: Router) {
+    this.route.queryParams.subscribe(() => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.characterId = this.router.getCurrentNavigation().extras.state.id
+      }
+    })
+  }
 
   async ionViewDidEnter() {
     //WAIT FOR DATA TO FETCH
@@ -23,15 +34,15 @@ export class ViewComicsPage {
 
     //DATA FOR HASH
     let timeStamp = Date.now()
-    let privateKey = 'e3e2db831d87d93f01ede25bfdc6bd0d46ac9fa6'
-    let publicKey = '89dd9f6152897008a59e0050cecf5713'
+    let privateKey = 'YOUR_PRIVATE_KEY'
+    let publicKey = 'YOUR_PUBLIC_KEY'
 
     //HASH
     let hash = Md5.hashStr(timeStamp + privateKey + publicKey)
 
     //CALL API
     let nativeCall = this.nativeHttp.get(
-      `https://gateway.marvel.com:443/v1/public/characters/1011334/comics?` + `ts=${timeStamp}&` + `apikey=${publicKey}&` + `hash=${hash}`,
+      `https://gateway.marvel.com:443/v1/public/characters/${this.characterId}/comics?` + `ts=${timeStamp}&` + `apikey=${publicKey}&` + `hash=${hash}`,
       {},
       {'Content-Type' : 'application/json; charset=utf-8'}
     )
