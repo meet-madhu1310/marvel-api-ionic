@@ -4,34 +4,30 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Marvel Character
+      Marvel Characters List
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-    <ion-searchbar 
+  <ion-searchbar 
     autocorrect autocomplete 
     placeholder="Search your character"
     (ionInput)="getCharacter($event)"
   >
-</ion-searchbar>
+  </ion-searchbar>
 
-    <ion-card *ngFor="let result of data" color="dark">
-      <ion-img style="min-height: 1vh !important; margin-top: 1px;" src="{{ result.thumbnail['path'] + '/landscape_xlarge.' + result.thumbnail['extension'] }}"></ion-img>
-      
-      <ion-card-header>
-        <ion-card-subtitle>
-          {{ result.name }}
-          <!-- {{ result.id }} -->
-        </ion-card-subtitle>
-      </ion-card-header>
+  <ion-card *ngFor="let result of data" color="dark" style="margin-top: 0px;">
 
-      <ion-card-content>
-        <ion-button small (click)="comicsPage(result.id)">View Comics</ion-button>
-      </ion-card-content>
-    </ion-card>
+    <ion-card-content float-left>
+      {{ result.name }}
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-button small (click)="characterDetail(result.id)" style="margin-top: -11px;" float-right>View Details</ion-button>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
 

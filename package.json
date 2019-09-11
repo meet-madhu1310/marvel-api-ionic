@@ -29,6 +29,7 @@
     "@types/crypto-js": "^3.1.43",
     "axios": "^0.19.0",
     "cordova-android": "^8.0.0",
+    "cordova-browser": "^6.0.0",
     "cordova-ios": "^5.0.1",
     "cordova-plugin-advanced-http": "^2.1.1",
     "cordova-plugin-file": "^6.0.2",
@@ -87,7 +88,8 @@
     },
     "platforms": [
       "ios",
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

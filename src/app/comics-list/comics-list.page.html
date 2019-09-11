@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>List of Comics</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngFor="let result of data" style="margin-top: 20px;">
+    <ion-item (click)="goToViewComics(result.id)">
+      <ion-label (click)="goToTest()" class="ion-text-wrap">
+        <h2>{{ result.title }}</h2>
+      </ion-label>
+      <ion-icon name="arrow-dropright" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <div class="bgImage" *ngIf="data?.length == 0">
+    
+  </div>
+
+</ion-content>

@@ -17,19 +17,9 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'About',
+      title: 'About Me',
       url: '/about',
       icon: 'contact'
-    },
-    {
-      title: 'Test',
-      url: '/testing',
-      icon: 'flash'
-    },
-    {
-      title: 'Welcome',
-      url: '/welcome-page',
-      icon: 'home'
     }
   ];
 

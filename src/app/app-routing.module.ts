@@ -20,12 +20,16 @@ const routes: Routes = [
     loadChildren: './about/about.module#AboutPageModule' 
   },
   { 
-    path: 'testing', 
-    loadChildren: './testing/testing.module#TestingPageModule' 
-  },
-  { 
     path: 'view-comics', 
     loadChildren: './view-comics/view-comics.module#ViewComicsPageModule' 
+  },
+  { 
+    path: 'character-detail', 
+    loadChildren: './character-detail/character-detail.module#CharacterDetailPageModule' 
+  },
+  { 
+    path: 'comics-list', 
+    loadChildren: './comics-list/comics-list.module#ComicsListPageModule' 
   }
 ];
 

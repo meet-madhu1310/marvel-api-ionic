@@ -7,8 +7,6 @@ import { finalize } from 'rxjs/operators'
 import { Md5 } from 'ts-md5/dist/md5'
 
 import { Router, NavigationExtras } from '@angular/router'
-import { NavController } from '@ionic/angular'
-import { ViewComicsPage } from '../view-comics/view-comics.page';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +32,7 @@ export class HomePage {
     await loading.present()
 
     let nativeCall = this.nativeHttp.get(
-      `https://gateway.marvel.com:443/v1/public/characters?limit=10&` + `ts=${this.timeStamp}&` + `apikey=${this.publicKey}&` + `hash=${this.hash}`,
+      `https://gateway.marvel.com:443/v1/public/characters?limit=100&` + `ts=${this.timeStamp}&` + `apikey=${this.publicKey}&` + `hash=${this.hash}`,
       {},
       {'Content-Type' : 'application/json; charset=utf-8'}
     )
@@ -47,15 +45,14 @@ export class HomePage {
     })
   }
 
-  //VIEW COMICS
-  public comicsPage(id: any) {
+  //GO TO CHARACTE DETAILS PAGE
+  public characterDetail(id: any) {
     let navExtras: NavigationExtras = {
       state: {
         id: id
       }
     }
-    this.route.navigate(['/view-comics'], navExtras)
-    console.log('Show me id: ', id)
+    this.route.navigate(['/character-detail'], navExtras)
   }
 
   //SEARCHBAR DATA
@@ -84,5 +81,4 @@ export class HomePage {
       this.ionViewDidEnter()
     }
   }
-
 }
